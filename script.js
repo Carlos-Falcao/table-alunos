@@ -1,0 +1,1 @@
+var nameAluno = document.getElementById('name_aluno');

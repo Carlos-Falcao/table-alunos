@@ -7,104 +7,110 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Alunos</h1>
-    <hr>
+    <header>
+        <p>Vacilos</p>
+    </header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>1°Trimestre</th>
-                <th>2°Trimestre</th>
-                <th>3°Trimestre</th>
-                <th>Média Final</th>
-                <th>Frequência</th>
-                <th>Situação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Palmon</td>
-                <td>10.0</td>
-                <td>10.0</td>
-                <td>10.0</td>
-                <td>10.0</td>
-                <td>100%</td>
-                <td>Aprovado</td>
-            </tr>
-            <tr>
-                <td>Morax</td>
-                <td>9.5</td>
-                <td>9.8</td>
-                <td>9.9</td>
-                <td>9.7</td>
-                <td>100%</td>
-                <td>Aprovado</td>
-            </tr>
-            <tr>
-                <td>Caduzinho</td>
-                <td>6.6</td>
-                <td>6.6</td>
-                <td>6.6</td>
-                <td>6.6</td>
-                <td>66%</td>
-                <td>Reprovado</td>
-            </tr>
-            <tr>
-                <td>Carlos</td>
-                <td>4.2</td>
-                <td>3.2</td>
-                <td>9.8</td>
-                <td>5.5</td>
-                <td>48%</td>
-                <td>Reprovado</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>Total de Alunos:4</td>
-                <td>Média da turma:7.9</td>
-                <td>Frequência da turma:76.5%</td>
-            </tr>
-        </tfoot>
-    </table>
+    <div class="bloco_boletim">
+        <h1>Alunos</h1>
+        <hr>
 
-    <!--Formulário de Inserção de Aluno-->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>1°Trimestre</th>
+                    <th>2°Trimestre</th>
+                    <th>3°Trimestre</th>
+                    <th>Média Final</th>
+                    <th>Frequência</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Palmon</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>10.0</td>
+                    <td>100%</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Morax</td>
+                    <td>9.5</td>
+                    <td>9.8</td>
+                    <td>9.9</td>
+                    <td>9.7</td>
+                    <td>100%</td>
+                    <td>Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Caduzinho</td>
+                    <td>6.6</td>
+                    <td>6.6</td>
+                    <td>6.6</td>
+                    <td>6.6</td>
+                    <td>66%</td>
+                    <td>Reprovado</td>
+                </tr>
+                <tr>
+                    <td>Carlos</td>
+                    <td>4.2</td>
+                    <td>3.2</td>
+                    <td>9.8</td>
+                    <td>5.5</td>
+                    <td>48%</td>
+                    <td>Reprovado</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">Total de Alunos:4</td>
+                    <td colspan="3">Média da turma:7.9</td>
+                    <td colspan="2">Frequência da turma:76.5%</td>
+                </tr>
+            </tfoot>
+        </table>
 
-    <h1>Adicionar Aluno</h1>
-    <hr>
+        <!--Formulário de Inserção de Aluno-->
 
-    <form action="">
-        <div class="sessao_nome">
-            <label for="name_aluno">Nome:</label>
-            <input type="text" placeholder="Nome do Aluno" id="name_aluno">
-        </div>
+        <h1>Adicionar Aluno</h1>
+        <hr>
 
-        <fieldset>
-            <legend>Notas:</legend>
-            <div>
-                <label for="notas">1°Trimestre:</label>
-                <input type="number" id="notas">
+        <form action="">
+            <div class="sessao_nome">
+                <label for="name_aluno">Nome:</label>
+                <input type="text" placeholder="Nome do Aluno" id="name_aluno">
             </div>
 
-            <div>
-                <label for="notas">2°Trimestre:</label>
-                <input type="number" id="notas">
-            </div>
+            <fieldset>
+                <legend>Notas:</legend>
+                <div>
+                    <label for="notas">1°Trimestre:</label>
+                    <input type="number" min="0" max="100" step="1" value="0" id="notas">
+                </div>
 
-            <div>
-                <label for="notas">3°Trimestre:</label>
-                <input type="number" id="notas">
-            </div>
-        </fieldset>
+                <div>
+                    <label for="notas">2°Trimestre:</label>
+                    <input type="number" min="0" max="100" step="1" value="0" id="notas">
+                </div>
 
-        <div class="label_final">
-            <label for="freq" class="insert_freq">Frequência:
-                <input type="number" id="freq">%
-            </label>
-        </div>
-        <input type="submit" value="Gravar" id="submit_buttom">
-    </form>
+                <div>
+                    <label for="notas">3°Trimestre:</label>
+                    <input type="number" min="0" max="100" step="1" value="0" id="notas">
+                </div>
+            </fieldset>
+
+            <div class="label_final">
+                <label for="freq" class="insert_freq">Frequência:
+                    <input type="number" min="0" max="100" step="1" value="0" id="freq">%
+                </label>
+            </div>
+            <input type="submit" value="Gravar" id="submit_buttom">
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>
