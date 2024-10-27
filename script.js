@@ -1,16 +1,21 @@
-function addTable (event){
-    event.preventDefault();
-    //VARIAVEIS
+let contadorAlunos = 0; // Inicializando com o número total de alunos
+let somaDasMedias = 0; // Inicializa a soma das médias
+let somaDasFrequencias = 0; // Inicializa a soma das frequências
+
+function addTable(event) {
+    event.preventDefault(); // Não faz o evento de recarregar a página
+
+    // Variáveis do input
     let nameAluno = document.getElementById('name_aluno');
     let notasAlunos = document.querySelectorAll('.notas');
     let freqn = document.getElementById('freq');
 
-    //NOME DOS ALUNOS
+    // Nome dos alunos
     let newLine = document.createElement('tr');
     let nome = document.createElement('td');
     nome.innerText = nameAluno.value;
 
-    //NOTAS ALUNOS
+    // Notas alunos
     let nota1 = document.createElement('td');
     let nota2 = document.createElement('td');
     let nota3 = document.createElement('td');
@@ -18,21 +23,33 @@ function addTable (event){
     nota2.innerText = notasAlunos[1].value;
     nota3.innerText = notasAlunos[2].value;
 
-    //FREQUENCIA ALUNOS
+    // Frequência alunos
     let frequencia = document.createElement('td');
-    frequencia.innerText = freqn.value + '%';
+    let freqValor = Number.parseFloat(freqn.value);
+    frequencia.innerText = freqValor + '%';
 
+    // Média da nota dos alunos
     let mediaAluno = document.createElement('td');
     let media = Math.floor((Number.parseFloat(notasAlunos[0].value) + Number.parseFloat(notasAlunos[1].value) + Number.parseFloat(notasAlunos[2].value)) / 3);
     mediaAluno.innerText = media;
 
-    let situacao = document.createElement('td');
+    // Atualiza a soma das médias
+    somaDasMedias += media;
 
-    if(media < 60 || Number.parseFloat(freqn.value) < 75){
+    // Atualiza a soma das frequências
+    somaDasFrequencias += freqValor;
+
+    let situacao = document.createElement('td');
+    if (media < 60 || freqValor < 75) {
         situacao.innerText = "Reprovado";
     } else {
         situacao.innerText = "Aprovado";
     }
+
+    // Variáveis do total da turma
+    let totalAlunos = document.getElementById('total_alunos');
+    let mediaTurma = document.getElementById('media_turma');
+    let freqTurma = document.getElementById('freq_turma');
 
     newLine.appendChild(nome);
     newLine.appendChild(nota1);
@@ -42,6 +59,19 @@ function addTable (event){
     newLine.appendChild(frequencia);
     newLine.appendChild(situacao);
     document.getElementById('tabela').appendChild(newLine);
+
+    // Atualiza o total de alunos
+    contadorAlunos++;
+    totalAlunos.innerText = `Total de Alunos: ${contadorAlunos}`;
+
+    // Calcula e atualiza a média da turma
+    let mediaTotal = somaDasMedias / contadorAlunos;
+    mediaTurma.innerText = `Média da turma: ${mediaTotal}`;
+
+    // Calcula e atualiza a frequência média da turma
+    let freqMedia = somaDasFrequencias / contadorAlunos;
+    freqTurma.innerText = `Frequência da turma: ${freqMedia}%`;
 }
 
+// Adiciona o evento ao botão de submissão
 document.getElementById('submit_buttom').addEventListener('click', addTable);
